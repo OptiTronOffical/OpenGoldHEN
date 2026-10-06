@@ -19,7 +19,7 @@ u8  [16] entry(void)
   install_shellcore_patches();
   install_custom_syscalls();
   install_patches_and_exec_handler();
-  notify("GoldHEN v2.4b18.9 loaded!\nCoded by SiSTRo",0);
+  notify("GoldHEN v2.4b18.9 loaded!\nCoded by Zer0day",0);
   load_klog_server_module();
   load_ftp_server_module();
   load_payloader_server_module();
@@ -46,7 +46,7 @@ u8  [16] goldhen_init(void)
   install_shellcore_patches();
   install_custom_syscalls();
   install_patches_and_exec_handler();
-  notify("GoldHEN v2.4b18.9 loaded!\nCoded by SiSTRo",0);
+  notify("GoldHEN v2.4b18.9 loaded!\nCoded by Zer0day",0);
   load_klog_server_module();
   load_ftp_server_module();
   load_payloader_server_module();
