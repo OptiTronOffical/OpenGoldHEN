@@ -1,0 +1,302 @@
+{
+  "generator": "tools/extract_cracktro.py",
+  "source_elf": "analysis/kpayload.elf",
+  "source_elf_bytes": 642888,
+  "document_encoding": "utf-8",
+  "html": {
+    "path": "assets/kpayload/cracktro.html",
+    "bytes": 148141,
+    "sha256": "fc1b0571ca2dec740cdfbfa6132b499deebca0ec99ccc8996a3547d1e7277521",
+    "starts_with": "<!DOCTYPE HTML>",
+    "ends_with": "</html>",
+    "provenance": {
+      "elf_offset_start": 272644,
+      "elf_offset_end_inclusive": 420784,
+      "elf_offset_start_hex": "0x42904",
+      "elf_offset_end_inclusive_hex": "0x66bb0",
+      "extraction": "verbatim byte copy of the ELF range from the '<!DOCTYPE HTML>' marker through the closing '</html>'",
+      "rodata_section": {
+        "elf_offset_start": 73344,
+        "size": 545099,
+        "elf_offset_end_inclusive": 618442
+      }
+    }
+  },
+  "unpacked_js": {
+    "path": "assets/kpayload/cracktro.unpacked.js",
+    "bytes": 203690,
+    "sha256": "784d3e21ccc6c7fd1921029fd52a40f37d3fd974da47bb21d47fe75785f4ba78",
+    "unpacked_body_chars": 203513,
+    "packed_blocks_found": 1,
+    "packed_blocks_unpacked": 1,
+    "blocks": [
+      {
+        "block_index": 1,
+        "elf_offset_start": 272682,
+        "elf_offset_end_inclusive": 420481,
+        "document_offset_start": 38,
+        "document_offset_end_inclusive": 147837,
+        "radix_a": 62,
+        "dictionary_entries_c": 2414,
+        "dictionary_separator": "|",
+        "packed_length_chars": 103286,
+        "unpacked_length_chars": 203111,
+        "nested_packed_blocks": 0
+      }
+    ],
+    "note": "concatenation of every unpacked block with banner comments, so the file does not map to one contiguous ELF range; per-block ELF provenance is in 'blocks'"
+  },
+  "images": [
+    {
+      "index": 1,
+      "path": "assets/kpayload/images/cracktro_01.png",
+      "bytes": 8206,
+      "sha256": "26e00dfa686013ca840bcf67d2b595e3fd09d041311ea234e2babbc64a3fce2f",
+      "width": 352,
+      "height": 90,
+      "bit_depth": 8,
+      "color_type": 3,
+      "interlace": 0,
+      "chunk_types": [
+        "IHDR",
+        "PLTE",
+        "tRNS",
+        "IDAT",
+        "IEND"
+      ],
+      "chunk_count": 5,
+      "all_crcs_ok": true,
+      "iend_present": true,
+      "provenance": {
+        "how": "base64 recovered from the data URI basepath+'<base64>' inside the unpacked script block (the packer dictionary alone is lossy)",
+        "data_uri_type": "data:image/png;base64",
+        "unpacked_js_path": "assets/kpayload/cracktro.unpacked.js",
+        "unpacked_js_offset_start": 163388,
+        "unpacked_js_offset_end_inclusive": 174331,
+        "base64_chars": 10944,
+        "packed_block_elf_offset_start": 272682,
+        "packed_block_elf_offset_end_inclusive": 420481,
+        "dictionary_run_elf_offset_start": 390276,
+        "dictionary_run_elf_offset_end_inclusive": 401184,
+        "note": "the packed block lives at these ELF offsets; the image's base64 bytes come from expanding its dictionary tokens in p, and the listed dictionary run is the lossy copy of the same image"
+      }
+    },
+    {
+      "index": 2,
+      "path": "assets/kpayload/images/cracktro_02.png",
+      "bytes": 9527,
+      "sha256": "6d8352d7df67adc5403a858d76aece13f6f57f1194e95c8b45c44b628c48eb2f",
+      "width": 443,
+      "height": 79,
+      "bit_depth": 8,
+      "color_type": 3,
+      "interlace": 0,
+      "chunk_types": [
+        "IHDR",
+        "PLTE",
+        "tRNS",
+        "IDAT",
+        "IEND"
+      ],
+      "chunk_count": 5,
+      "all_crcs_ok": true,
+      "iend_present": true,
+      "provenance": {
+        "how": "base64 recovered from the data URI basepath+'<base64>' inside the unpacked script block (the packer dictionary alone is lossy)",
+        "data_uri_type": "data:image/png;base64",
+        "unpacked_js_path": "assets/kpayload/cracktro.unpacked.js",
+        "unpacked_js_offset_start": 174367,
+        "unpacked_js_offset_end_inclusive": 187070,
+        "base64_chars": 12704,
+        "packed_block_elf_offset_start": 272682,
+        "packed_block_elf_offset_end_inclusive": 420481,
+        "dictionary_run_elf_offset_start": 401186,
+        "dictionary_run_elf_offset_end_inclusive": 419420,
+        "note": "the packed block lives at these ELF offsets; the image's base64 bytes come from expanding its dictionary tokens in p, and the listed dictionary run is the lossy copy of the same image"
+      }
+    },
+    {
+      "index": 3,
+      "path": "assets/kpayload/images/cracktro_03.png",
+      "bytes": 4206,
+      "sha256": "4e0c1e5df5d81851d12b585527371b016aad648701ea78a95b0d4524ce9e2bd6",
+      "width": 680,
+      "height": 400,
+      "bit_depth": 8,
+      "color_type": 3,
+      "interlace": 0,
+      "chunk_types": [
+        "IHDR",
+        "PLTE",
+        "IDAT",
+        "IEND"
+      ],
+      "chunk_count": 4,
+      "all_crcs_ok": true,
+      "iend_present": true,
+      "provenance": {
+        "how": "base64 recovered from the data URI basepath+'<base64>' inside the unpacked script block (the packer dictionary alone is lossy)",
+        "data_uri_type": "data:image/png;base64",
+        "unpacked_js_path": "assets/kpayload/cracktro.unpacked.js",
+        "unpacked_js_offset_start": 187107,
+        "unpacked_js_offset_end_inclusive": 192714,
+        "base64_chars": 5608,
+        "packed_block_elf_offset_start": 272682,
+        "packed_block_elf_offset_end_inclusive": 420481,
+        "dictionary_run_elf_offset_start": 413828,
+        "dictionary_run_elf_offset_end_inclusive": 420151,
+        "note": "the packed block lives at these ELF offsets; the image's base64 bytes come from expanding its dictionary tokens in p, and the listed dictionary run is the lossy copy of the same image"
+      }
+    },
+    {
+      "index": 4,
+      "path": "assets/kpayload/images/cracktro_04.png",
+      "bytes": 550,
+      "sha256": "3840037ac2d51b2407b04a4a610ce3c7443c602c9ca0536108f53dc89fec00ec",
+      "width": 320,
+      "height": 200,
+      "bit_depth": 1,
+      "color_type": 3,
+      "interlace": 0,
+      "chunk_types": [
+        "IHDR",
+        "PLTE",
+        "tRNS",
+        "IDAT",
+        "IEND"
+      ],
+      "chunk_count": 5,
+      "all_crcs_ok": true,
+      "iend_present": true,
+      "provenance": {
+        "how": "base64 recovered from the data URI basepath+'<base64>' inside the unpacked script block (the packer dictionary alone is lossy)",
+        "data_uri_type": "data:image/png;base64",
+        "unpacked_js_path": "assets/kpayload/cracktro.unpacked.js",
+        "unpacked_js_offset_start": 192747,
+        "unpacked_js_offset_end_inclusive": 193482,
+        "base64_chars": 736,
+        "packed_block_elf_offset_start": 272682,
+        "packed_block_elf_offset_end_inclusive": 420481,
+        "dictionary_run_elf_offset_start": 419422,
+        "dictionary_run_elf_offset_end_inclusive": 420340,
+        "note": "the packed block lives at these ELF offsets; the image's base64 bytes come from expanding its dictionary tokens in p, and the listed dictionary run is the lossy copy of the same image"
+      }
+    }
+  ],
+  "dictionary_extraction_attempt": {
+    "method": "for each 'iVBORw0KGgo' run, concatenate base64 text across the intervening '|' separators until the terminating IEND marker, then base64-decode",
+    "runs": [
+      {
+        "index": 1,
+        "elf_offset_start": 390276,
+        "document_offset_start": 117632,
+        "document_offset_end_inclusive": 128540,
+        "base64_chars": 10594,
+        "base64_chars_mod4": 2,
+        "separator_count": 315,
+        "contains_plus": 0,
+        "contains_slash": 0,
+        "contains_padding": 0,
+        "ends_with_literal_iend_marker": true,
+        "iend_marker_found": "JRU5ErkJggg",
+        "stopped_on_decoded_iend": true,
+        "decoded_bytes": 7945,
+        "validation": "PNG validation failed: bad CRC for chunk b'PLTE' at offset 33: stored 0x80000036, computed 0xc77b8a94",
+        "recovered": false,
+        "elf_offset_end_inclusive": 401184
+      },
+      {
+        "index": 2,
+        "elf_offset_start": 401186,
+        "document_offset_start": 128542,
+        "document_offset_end_inclusive": 146776,
+        "base64_chars": 17752,
+        "base64_chars_mod4": 0,
+        "separator_count": 483,
+        "contains_plus": 0,
+        "contains_slash": 0,
+        "contains_padding": 0,
+        "ends_with_literal_iend_marker": false,
+        "iend_marker_found": "SUVORK5CYII",
+        "stopped_on_decoded_iend": true,
+        "decoded_bytes": 13314,
+        "validation": "PNG validation failed: bad CRC for chunk b'PLTE' at offset 33: stored 0x974524e5, computed 0x7c47b65d",
+        "recovered": false,
+        "elf_offset_end_inclusive": 419420
+      },
+      {
+        "index": 3,
+        "elf_offset_start": 413828,
+        "document_offset_start": 141184,
+        "document_offset_end_inclusive": 147507,
+        "base64_chars": 6162,
+        "base64_chars_mod4": 2,
+        "separator_count": 162,
+        "contains_plus": 0,
+        "contains_slash": 0,
+        "contains_padding": 0,
+        "ends_with_literal_iend_marker": false,
+        "iend_marker_found": "ElFTkSuQmCC",
+        "stopped_on_decoded_iend": true,
+        "decoded_bytes": 4621,
+        "validation": "PNG validation failed: bad CRC for chunk b'PLTE' at offset 33: stored 0x3c22e000, computed 0xa6d596bc",
+        "recovered": false,
+        "elf_offset_end_inclusive": 420151
+      },
+      {
+        "index": 4,
+        "elf_offset_start": 419422,
+        "document_offset_start": 146778,
+        "document_offset_end_inclusive": 147696,
+        "base64_chars": 866,
+        "base64_chars_mod4": 2,
+        "separator_count": 53,
+        "contains_plus": 0,
+        "contains_slash": 0,
+        "contains_padding": 0,
+        "ends_with_literal_iend_marker": false,
+        "iend_marker_found": "JRU5ErkJggg",
+        "stopped_on_decoded_iend": false,
+        "decoded_bytes": 649,
+        "validation": "PNG validation failed: bad CRC for chunk b'PLTE' at offset 33: stored 0x40000000, computed 0x34dfd335",
+        "recovered": false,
+        "elf_offset_end_inclusive": 420340
+      }
+    ],
+    "valid_images": 0,
+    "reason_for_failure": "the Dean Edwards packer tokenises the source with /\\w+/ and emits k.join('|'), so non-word characters ('+', '/', '=') are not part of any dictionary word; joining the dictionary entries therefore loses them and the decoded PNG fails chunk CRC validation"
+  },
+  "cross_check_against_task_constants": {
+    "stated_document_elf_range": [
+      "0x42904",
+      "0x66bab"
+    ],
+    "stated_document_bytes": 148135,
+    "measured_document_elf_range": [
+      "0x42904",
+      "0x66bb0"
+    ],
+    "measured_document_bytes": 148141,
+    "stated_range_length_treating_end_exclusive": 148135,
+    "sha256_of_first_148135_bytes": "0d284de9dcdc386c69acc20799480e645ab213158580ab1dcc5da1898119e57d",
+    "sha256_of_stated_inclusive_range_0x42904_to_0x66bab": "d8e6d8a227a50a3c3f74678c7b9bee17a06ef8c6d1e5ba9b601c4c9cbb73da88",
+    "bytes_cut_by_stated_end_offset": "html>",
+    "stated_dictionary_png_offsets": [
+      390276,
+      401186,
+      413828,
+      419422
+    ],
+    "measured_png_b64_start_offsets": [
+      390276,
+      401186,
+      413828,
+      419422
+    ]
+  },
+  "notes": [
+    "SIZE DISCREPANCY: the task statement says the document is 148135 bytes occupying ELF offsets 0x42904..0x66bab (inclusive). Measured: the '<!DOCTYPE HTML>' marker is at 0x42904 and the document only ends after '</html>' at 0x66bb0, i.e. 148141 bytes. Notes: (a) 0x66bab - 0x42904 = 148135 omits the usual +1 for an inclusive range and (b) the '</html>' tag actually starts at 0x66baa, so the stated end offset falls 5 bytes short of it. This tool auto-detects the real extent, so cracktro.html is complete (it genuinely ends with '</html>').",
+    "DICTIONARY PATH IS LOSSY: the literal method from the task statement (concatenate the base64 across '|' separators) recovered 0/4 valid images. The packer tokenises with /\\w+/ and stores k.join('|'), so every non-word character ('+' and '/', about 3% of a base64 stream, and the '=' padding) is absent from the dictionary text; the resulting strings fail PNG chunk CRC validation. The images were therefore recovered from the unpacked data URIs instead, which are complete and fully validated."
+  ],
+  "problems": []
+}

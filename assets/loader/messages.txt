@@ -1,0 +1,4 @@
+[GoldHEN] Invalid GoldHEN elf!
+[GoldHEN] Could not allocate memory for GoldHEN elf!
+[GoldHEN] Could not load GoldHEN elf!
+[GoldHEN] Installing GoldHEN in Kernel...

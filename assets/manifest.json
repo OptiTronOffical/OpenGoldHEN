@@ -1,0 +1,1061 @@
+{
+ "source": {
+  "file": "goldhen.bin",
+  "size": 291808,
+  "sha256": "ab1849d66816a9f4a3d155b06b51cdc5eb07a7fc5bd4333c90e3af74f802b2b2"
+ },
+ "layout": {
+  "loader": [
+   "0x00000",
+   "0x6480"
+  ],
+  "zlib_stream": [
+   "0x06480",
+   "0x46CEC"
+  ],
+  "trailer": [
+   "0x46CEC",
+   "0x473E0"
+  ]
+ },
+ "note": "goldhen.bin carries no pictures or documents itself; the media assets are inside the decompressed payload ELF and are listed here too.",
+ "count": 148,
+ "assets": [
+  {
+   "path": "assets/loader/loader_image.bin",
+   "size": 25728,
+   "sha256": "eaa68a5f74717e47cee3da8ffe0aed2de90a50a11dc63f4a71d0002e7a0bcab0",
+   "source": "goldhen.bin [0x00000, 0x6480)",
+   "description": "the loader, a flat x86-64 image based at 0x926200000; the C for it is src/loader/*"
+  },
+  {
+   "path": "assets/loader/banner.txt",
+   "size": 960,
+   "sha256": "e2ac30384635a772a894f9a09c8336431ec1d339de842724b0a711fbaf7ea31c",
+   "source": "goldhen.bin [0x46D0C, 0x470DB)",
+   "description": "the banner the loader prints on start-up, decoded from one string per line"
+  },
+  {
+   "path": "assets/loader/messages.txt",
+   "size": 164,
+   "sha256": "b4d3a1fe1cad707cd112ef833fc576aa04e2c888a1027253f35331b69d1cd0a2",
+   "source": "goldhen.bin [0x470DB, 0x471A0)",
+   "description": "loader status messages and the ELF interpreter path"
+  },
+  {
+   "path": "assets/kpayload/kpayload.zlib",
+   "size": 264300,
+   "sha256": "fcc332f57cf543c6e83126ad1faef7faa8a0c9ac1abec726409dd4d7aa28494b",
+   "source": "goldhen.bin [0x06480, 0x46CEC)",
+   "description": "zlib stream of the kernel payload; byte-reproducible with level 7, memLevel 8"
+  },
+  {
+   "path": "assets/kpayload/kpayload.elf",
+   "size": 642888,
+   "sha256": "ae6dbfa46a909fbafdfd47c5bc50774994e532ce4f2ec775edd15abb1d1b1781",
+   "source": "decompressed from assets/kpayload/kpayload.zlib",
+   "description": "the kernel payload ELF64; the C for it is src/kpayload/*"
+  },
+  {
+   "path": "assets/trailer/trailer.bin",
+   "size": 1780,
+   "sha256": "14557b42e070110f8ed6863af11e65f9f9e852cfbeb31bcf8d408c8cbc879e0e",
+   "source": "goldhen.bin [0x46CEC, 0x473E0)",
+   "description": "the whole trailer region"
+  },
+  {
+   "path": "assets/trailer/puff_jumptable.bin",
+   "size": 20,
+   "sha256": "c04a448334f8e5f4a71566dca66039f9f6bb418bc015ae9649165d1a9da95055",
+   "source": "goldhen.bin [0x46CF8, 0x46D0C)",
+   "description": "puff_codes() switch table: five rel32 block targets"
+  },
+  {
+   "path": "assets/trailer/inflate_tables.bin",
+   "size": 210,
+   "sha256": "3378e85ccba05ee798667ff948f9d6dd33448ea5388eb9d4c1d1808905474687",
+   "source": "goldhen.bin [0x471A0, 0x47272)",
+   "description": "static inflate tables (length/distance bases and extra bits)"
+  },
+  {
+   "path": "assets/trailer/elf_metadata.bin",
+   "size": 350,
+   "sha256": "9dafe6864ebace532961a88d66ed6e4e16749245b04ca823c274a5c8483e0d6e",
+   "source": "goldhen.bin [0x47272, 0x473D0)",
+   "description": "residual loader ELF metadata: .dynsym null, .dynstr, .gnu.hash, .dynamic"
+  },
+  {
+   "path": "assets/trailer/globals.bin",
+   "size": 16,
+   "sha256": "c417a87f62b017d983a1758992d0a3efc9f3d10585330e071c840995e60de941",
+   "source": "goldhen.bin [0x473D0, 0x473E0)",
+   "description": "loader globals: firmware_version then kernel_base scratch word"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1000.bin",
+   "size": 456,
+   "sha256": "09e30c1322979611f2c53e6c9dda664461eba8a6b44ab4a31ea0bfaf2babd98f",
+   "source": "emulated from the kpayload's goldhen_offsets_1000() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1000; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1001.bin",
+   "size": 456,
+   "sha256": "4924c627f20742b89c87c03388b7ce91f14011e3f720e3f39571d00ccf53e530",
+   "source": "emulated from the kpayload's goldhen_offsets_1001() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1001; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1050.bin",
+   "size": 456,
+   "sha256": "e9b5280af4cc2d263f3fe3b7bc00e5e462eff01d08ff3123a865330ec2bad069",
+   "source": "emulated from the kpayload's goldhen_offsets_1050() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1050; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1071.bin",
+   "size": 456,
+   "sha256": "421230d5598069c741551d8fb10aaa96b674c672b46662923e4e2b196b20b4fa",
+   "source": "emulated from the kpayload's goldhen_offsets_1071() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1071; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1100.bin",
+   "size": 456,
+   "sha256": "539d28e9f825babb1343c64bea8202e824716c9811313779261d978be18ba322",
+   "source": "emulated from the kpayload's goldhen_offsets_1100() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1100; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1102.bin",
+   "size": 456,
+   "sha256": "477afd9f44efadd9bb4160547a134023b7ccc88c213673ecbd65cd21b812e9bd",
+   "source": "emulated from the kpayload's goldhen_offsets_1102() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1102; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1152.bin",
+   "size": 456,
+   "sha256": "8b4a28de8e4296d92c9dccfb35e144d8d561e6f8d4909173128181adbe219ee0",
+   "source": "emulated from the kpayload's goldhen_offsets_1152() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1152; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1202.bin",
+   "size": 456,
+   "sha256": "9dbd61b4c457bd74f7b4ad75a02f2c5769cb850138ceaeb5e39f0755d22e3835",
+   "source": "emulated from the kpayload's goldhen_offsets_1202() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1202; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1252.bin",
+   "size": 456,
+   "sha256": "c189764cc6aa8b315feecfb46b20889fdf7e7b791b184466235b9c632251e41b",
+   "source": "emulated from the kpayload's goldhen_offsets_1252() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1252; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_1300.bin",
+   "size": 456,
+   "sha256": "0e84f480bc240830719f0263a49aa36123efe01fd39a38be1f5da1ba52f36a0f",
+   "source": "emulated from the kpayload's goldhen_offsets_1300() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_1300; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_505.bin",
+   "size": 456,
+   "sha256": "4badd6fc58e23e7584b1ad3dd65c9fbdd0585716949165b365fd269db85e5438",
+   "source": "emulated from the kpayload's goldhen_offsets_505() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_505; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_671.bin",
+   "size": 456,
+   "sha256": "b9416f92fc612fcb183969856a9fa34f0c0527c6e554d1f91236530d619ca7ba",
+   "source": "emulated from the kpayload's goldhen_offsets_671() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_671; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_672.bin",
+   "size": 456,
+   "sha256": "9aabf798189bd5a2527c83557f053a6a6484519d784bfe57fc4e51d9e470ffee",
+   "source": "emulated from the kpayload's goldhen_offsets_672() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_672; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_702.bin",
+   "size": 456,
+   "sha256": "838c4e85ff6eed1742869578204d37dfa767696099e6789823efda08ae7ab072",
+   "source": "emulated from the kpayload's goldhen_offsets_702() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_702; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_750.bin",
+   "size": 456,
+   "sha256": "373bf86b4b6f4a0e77191e0310a04ddcdce1341e6f657665db74813b54304f45",
+   "source": "emulated from the kpayload's goldhen_offsets_750() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_750; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_751.bin",
+   "size": 456,
+   "sha256": "401afff20e93537b5b4032fac6a971e3604cc4d58865cfcf7ffa27dace647cf6",
+   "source": "emulated from the kpayload's goldhen_offsets_751() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_751; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_755.bin",
+   "size": 456,
+   "sha256": "60d15c3dcb080f163e49b3e7ae9f08b6fc46f1b41f75f6fb277d559f29e16ab8",
+   "source": "emulated from the kpayload's goldhen_offsets_755() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_755; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_800.bin",
+   "size": 456,
+   "sha256": "6049c4a4c3b0a316ac24ffda955e36136abaab6a33cd3cda41caeb971a44bb47",
+   "source": "emulated from the kpayload's goldhen_offsets_800() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_800; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_801.bin",
+   "size": 456,
+   "sha256": "4881b536bab3653987e6cb50f8cf824075143d24c3cd65392d59cfac45137d62",
+   "source": "emulated from the kpayload's goldhen_offsets_801() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_801; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_803.bin",
+   "size": 456,
+   "sha256": "498f1816addf386b7e73d66e22499d58d60d580bb7395c4814c7adfa75d0eb88",
+   "source": "emulated from the kpayload's goldhen_offsets_803() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_803; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_850.bin",
+   "size": 456,
+   "sha256": "b3d67046658a334201540f78c3925ba86edf8f886f11f3787e90090d407f0ba2",
+   "source": "emulated from the kpayload's goldhen_offsets_850() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_850; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_852.bin",
+   "size": 456,
+   "sha256": "83f2171393616b5d279409a7bdb88e0626c60890c4e1a572a5c6f81d315bb3e2",
+   "source": "emulated from the kpayload's goldhen_offsets_852() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_852; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_900.bin",
+   "size": 456,
+   "sha256": "4763f1c345451811bd7ce34fe6b69d20f64a3adac38bbc87a980dc75af407e8e",
+   "source": "emulated from the kpayload's goldhen_offsets_900() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_900; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_903.bin",
+   "size": 456,
+   "sha256": "66ed3b8a0d06af56a60619bf0d8c77bfaa8293300920ed41cfe2dd883f4ada64",
+   "source": "emulated from the kpayload's goldhen_offsets_903() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_903; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_904.bin",
+   "size": 456,
+   "sha256": "d154a500e2d3bd974c33afc2be112f49f20a23d5e7ba92e7a6e0ca5df1afc2fb",
+   "source": "emulated from the kpayload's goldhen_offsets_904() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_904; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_950.bin",
+   "size": 456,
+   "sha256": "9e7e61863f9accc372ec1846bded25d51d6e1ba9dfafdd1df1571414ab93904b",
+   "source": "emulated from the kpayload's goldhen_offsets_950() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_950; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_951.bin",
+   "size": 456,
+   "sha256": "927ae0da62d4b9dd15e7cc4a4af7296f96019a7a523001b82401d3d944d2bd29",
+   "source": "emulated from the kpayload's goldhen_offsets_951() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_951; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/goldhen_offsets_960.bin",
+   "size": 456,
+   "sha256": "909d4eb73d66e0493eb20ac744699dcc9e1c6615de99ea37b7769e27db39e24a",
+   "source": "emulated from the kpayload's goldhen_offsets_960() function",
+   "description": "per-firmware kernel offsets for goldhen_offsets_960; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1000.bin",
+   "size": 20,
+   "sha256": "c7baea99e0967a3cbbb5f1df36a0e7b0f941138c9b629164203d731881208bc5",
+   "source": "emulated from the loader's installer_offsets_1000() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1000; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1001.bin",
+   "size": 20,
+   "sha256": "c7baea99e0967a3cbbb5f1df36a0e7b0f941138c9b629164203d731881208bc5",
+   "source": "emulated from the loader's installer_offsets_1001() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1001; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1050.bin",
+   "size": 20,
+   "sha256": "c3011ff5b3c33250b2460278b7a50efd054d32e17e7c0b206a7a2cc320aff18c",
+   "source": "emulated from the loader's installer_offsets_1050() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1050; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1070.bin",
+   "size": 20,
+   "sha256": "c3011ff5b3c33250b2460278b7a50efd054d32e17e7c0b206a7a2cc320aff18c",
+   "source": "emulated from the loader's installer_offsets_1070() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1070; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1071.bin",
+   "size": 20,
+   "sha256": "c3011ff5b3c33250b2460278b7a50efd054d32e17e7c0b206a7a2cc320aff18c",
+   "source": "emulated from the kpayload's installer_offsets_1071() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1071; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1100.bin",
+   "size": 20,
+   "sha256": "c33f659d2b9f6285b92cfe16655745b1eaca761a912f8f9b6f9d01174483cda3",
+   "source": "emulated from the loader's installer_offsets_1100() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1100; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1102.bin",
+   "size": 20,
+   "sha256": "c86c59d48e5b28b4e5935e3202aaf9812a2e9093a5547ad4f66304be59262291",
+   "source": "emulated from the loader's installer_offsets_1102() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1102; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1150.bin",
+   "size": 20,
+   "sha256": "f69e1651eac8c752e6c14cc364b9dc59504ebdd154c63a405b88f7a13a6f376c",
+   "source": "emulated from the loader's installer_offsets_1150() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1150; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1152.bin",
+   "size": 20,
+   "sha256": "f69e1651eac8c752e6c14cc364b9dc59504ebdd154c63a405b88f7a13a6f376c",
+   "source": "emulated from the kpayload's installer_offsets_1152() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1152; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1200.bin",
+   "size": 20,
+   "sha256": "402d8a330e8308ddf7ff1d01ac85f03b1a8206686754a51915a42bd0991b7c91",
+   "source": "emulated from the loader's installer_offsets_1200() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1200; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1202.bin",
+   "size": 20,
+   "sha256": "402d8a330e8308ddf7ff1d01ac85f03b1a8206686754a51915a42bd0991b7c91",
+   "source": "emulated from the kpayload's installer_offsets_1202() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1202; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1250.bin",
+   "size": 20,
+   "sha256": "82c06eafd45c87674e2bda80d3ed57bbc4212f01d536327b565b35a013249810",
+   "source": "emulated from the loader's installer_offsets_1250() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1250; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1252.bin",
+   "size": 20,
+   "sha256": "82c06eafd45c87674e2bda80d3ed57bbc4212f01d536327b565b35a013249810",
+   "source": "emulated from the kpayload's installer_offsets_1252() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1252; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_1300.bin",
+   "size": 20,
+   "sha256": "56e9cfaa710a0a40140091faab0c9a58463f8df9641a83a6fb6a4708f3aaaa74",
+   "source": "emulated from the loader's installer_offsets_1300() function",
+   "description": "per-firmware kernel offsets for installer_offsets_1300; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_505.bin",
+   "size": 20,
+   "sha256": "28513f5333aefe10ca9aaf844c8c026d3f6623a22814ad48a5b672fd5484c656",
+   "source": "emulated from the loader's installer_offsets_505() function",
+   "description": "per-firmware kernel offsets for installer_offsets_505; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_671.bin",
+   "size": 20,
+   "sha256": "35699bb87af74c05c7203dc793e9885584995eb0b6569607eb1ea5e699982fe5",
+   "source": "emulated from the loader's installer_offsets_671() function",
+   "description": "per-firmware kernel offsets for installer_offsets_671; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_672.bin",
+   "size": 20,
+   "sha256": "35699bb87af74c05c7203dc793e9885584995eb0b6569607eb1ea5e699982fe5",
+   "source": "emulated from the loader's installer_offsets_672() function",
+   "description": "per-firmware kernel offsets for installer_offsets_672; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_702.bin",
+   "size": 20,
+   "sha256": "455d3450c5e1ce91542955216dd858861c01a1683a18232025612706809d32b2",
+   "source": "emulated from the loader's installer_offsets_702() function",
+   "description": "per-firmware kernel offsets for installer_offsets_702; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_750.bin",
+   "size": 20,
+   "sha256": "47d606eb5bfebbcab9313c8f5ade3f26d5e7dc5cda715b9e4400e220e1d9ecc7",
+   "source": "emulated from the loader's installer_offsets_750() function",
+   "description": "per-firmware kernel offsets for installer_offsets_750; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_751.bin",
+   "size": 20,
+   "sha256": "47d606eb5bfebbcab9313c8f5ade3f26d5e7dc5cda715b9e4400e220e1d9ecc7",
+   "source": "emulated from the loader's installer_offsets_751() function",
+   "description": "per-firmware kernel offsets for installer_offsets_751; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_755.bin",
+   "size": 20,
+   "sha256": "47d606eb5bfebbcab9313c8f5ade3f26d5e7dc5cda715b9e4400e220e1d9ecc7",
+   "source": "emulated from the loader's installer_offsets_755() function",
+   "description": "per-firmware kernel offsets for installer_offsets_755; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_800.bin",
+   "size": 20,
+   "sha256": "86942bc5f4e62cfff2b299ffab3d46d8acf405ecc41eacdb352cf0b16acca0ff",
+   "source": "emulated from the loader's installer_offsets_800() function",
+   "description": "per-firmware kernel offsets for installer_offsets_800; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_801.bin",
+   "size": 20,
+   "sha256": "86942bc5f4e62cfff2b299ffab3d46d8acf405ecc41eacdb352cf0b16acca0ff",
+   "source": "emulated from the loader's installer_offsets_801() function",
+   "description": "per-firmware kernel offsets for installer_offsets_801; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_803.bin",
+   "size": 20,
+   "sha256": "86942bc5f4e62cfff2b299ffab3d46d8acf405ecc41eacdb352cf0b16acca0ff",
+   "source": "emulated from the loader's installer_offsets_803() function",
+   "description": "per-firmware kernel offsets for installer_offsets_803; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_850.bin",
+   "size": 20,
+   "sha256": "fb1b9405c93d835dc8be14b14acab151f99e882a7e6ebe724172ee014d96be8b",
+   "source": "emulated from the loader's installer_offsets_850() function",
+   "description": "per-firmware kernel offsets for installer_offsets_850; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_852.bin",
+   "size": 20,
+   "sha256": "fb1b9405c93d835dc8be14b14acab151f99e882a7e6ebe724172ee014d96be8b",
+   "source": "emulated from the loader's installer_offsets_852() function",
+   "description": "per-firmware kernel offsets for installer_offsets_852; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_900.bin",
+   "size": 20,
+   "sha256": "b48c7347bfdd624b4785bf74b8172cd2eccde012384573c8a214c5f9015c6874",
+   "source": "emulated from the loader's installer_offsets_900() function",
+   "description": "per-firmware kernel offsets for installer_offsets_900; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_903.bin",
+   "size": 20,
+   "sha256": "8498d69138392fa537133a5f2471f4867436b0783cd7d2a7be161f1c25008dd5",
+   "source": "emulated from the loader's installer_offsets_903() function",
+   "description": "per-firmware kernel offsets for installer_offsets_903; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_904.bin",
+   "size": 20,
+   "sha256": "8498d69138392fa537133a5f2471f4867436b0783cd7d2a7be161f1c25008dd5",
+   "source": "emulated from the loader's installer_offsets_904() function",
+   "description": "per-firmware kernel offsets for installer_offsets_904; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_950.bin",
+   "size": 20,
+   "sha256": "0a5cad5c8111b23773487a67581540f4766816d91c83cb9d0210982789386cbb",
+   "source": "emulated from the loader's installer_offsets_950() function",
+   "description": "per-firmware kernel offsets for installer_offsets_950; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_951.bin",
+   "size": 20,
+   "sha256": "0a5cad5c8111b23773487a67581540f4766816d91c83cb9d0210982789386cbb",
+   "source": "emulated from the loader's installer_offsets_951() function",
+   "description": "per-firmware kernel offsets for installer_offsets_951; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/installer_offsets_960.bin",
+   "size": 20,
+   "sha256": "0a5cad5c8111b23773487a67581540f4766816d91c83cb9d0210982789386cbb",
+   "source": "emulated from the loader's installer_offsets_960() function",
+   "description": "per-firmware kernel offsets for installer_offsets_960; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1000.bin",
+   "size": 308,
+   "sha256": "5c80467793b5ef16abdfcf47b2466ddf67b913fd17e9cef4d64fe09fc5c0baee",
+   "source": "emulated from the loader's ksdk_offsets_1000() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1000; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1001.bin",
+   "size": 308,
+   "sha256": "5c80467793b5ef16abdfcf47b2466ddf67b913fd17e9cef4d64fe09fc5c0baee",
+   "source": "emulated from the loader's ksdk_offsets_1001() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1001; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1050.bin",
+   "size": 308,
+   "sha256": "935ceb3c8063ef3ab4420eb3839a1e3ade8eafe6f8bd1a4776eaab111c9a2dad",
+   "source": "emulated from the loader's ksdk_offsets_1050() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1050; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1070.bin",
+   "size": 308,
+   "sha256": "935ceb3c8063ef3ab4420eb3839a1e3ade8eafe6f8bd1a4776eaab111c9a2dad",
+   "source": "emulated from the loader's ksdk_offsets_1070() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1070; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1071.bin",
+   "size": 308,
+   "sha256": "935ceb3c8063ef3ab4420eb3839a1e3ade8eafe6f8bd1a4776eaab111c9a2dad",
+   "source": "emulated from the kpayload's ksdk_offsets_1071() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1071; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1100.bin",
+   "size": 308,
+   "sha256": "700033e84a5b894e41bf91b4e6cfe5ea0f781e4fd49953a9ace2c71d30c6ca38",
+   "source": "emulated from the loader's ksdk_offsets_1100() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1100; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1102.bin",
+   "size": 308,
+   "sha256": "1e38b2776dc605bff7d2dcb1ee24ae763e4177667d48ff473ed040c47cd07165",
+   "source": "emulated from the loader's ksdk_offsets_1102() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1102; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1150.bin",
+   "size": 308,
+   "sha256": "bdaf58064e4e7e4bdba2b422a6c236f97a6acfa0976d14fac55165d0f163c511",
+   "source": "emulated from the loader's ksdk_offsets_1150() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1150; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1152.bin",
+   "size": 308,
+   "sha256": "bdaf58064e4e7e4bdba2b422a6c236f97a6acfa0976d14fac55165d0f163c511",
+   "source": "emulated from the kpayload's ksdk_offsets_1152() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1152; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1200.bin",
+   "size": 308,
+   "sha256": "bd9e491ebd957c2de7817240d9acb6956c39eedff10a844001d66db5f71687e0",
+   "source": "emulated from the loader's ksdk_offsets_1200() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1200; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1202.bin",
+   "size": 308,
+   "sha256": "bd9e491ebd957c2de7817240d9acb6956c39eedff10a844001d66db5f71687e0",
+   "source": "emulated from the kpayload's ksdk_offsets_1202() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1202; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1250.bin",
+   "size": 308,
+   "sha256": "d6d74103a34ed9feca29329bf4d1f0a2d024d942c78a8053ec8bf74a644fcafa",
+   "source": "emulated from the loader's ksdk_offsets_1250() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1250; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1252.bin",
+   "size": 308,
+   "sha256": "d6d74103a34ed9feca29329bf4d1f0a2d024d942c78a8053ec8bf74a644fcafa",
+   "source": "emulated from the kpayload's ksdk_offsets_1252() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1252; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_1300.bin",
+   "size": 308,
+   "sha256": "ee1165526b7b35b90c3b79f7bbd735cc683b088c4386ffaf5cef98b66bd3cb86",
+   "source": "emulated from the loader's ksdk_offsets_1300() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_1300; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_505.bin",
+   "size": 308,
+   "sha256": "bb4333b0df0228db641ebdf0603c235cf8aa09b197b0f6d2f94b99fbe5633236",
+   "source": "emulated from the loader's ksdk_offsets_505() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_505; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_671.bin",
+   "size": 308,
+   "sha256": "bf46eedebf958c8bfa338cb51a769e0097e0b8db4a5f52f36122a88337e2123e",
+   "source": "emulated from the loader's ksdk_offsets_671() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_671; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_672.bin",
+   "size": 308,
+   "sha256": "bf46eedebf958c8bfa338cb51a769e0097e0b8db4a5f52f36122a88337e2123e",
+   "source": "emulated from the loader's ksdk_offsets_672() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_672; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_702.bin",
+   "size": 308,
+   "sha256": "cf947262d2090f78f185df17d67a32dd7b0a150f2702a1b53f080e17532ae2fe",
+   "source": "emulated from the loader's ksdk_offsets_702() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_702; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_750.bin",
+   "size": 308,
+   "sha256": "a5077ad5a3006d17f66145b26b33c7bb18da435e87ab5997c5a9ceffa8962404",
+   "source": "emulated from the loader's ksdk_offsets_750() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_750; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_751.bin",
+   "size": 308,
+   "sha256": "d3487491eca15d297e7d33b724df3d15db83b0b4f0db7ee97111ce1cf86b91eb",
+   "source": "emulated from the loader's ksdk_offsets_751() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_751; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_755.bin",
+   "size": 308,
+   "sha256": "d3487491eca15d297e7d33b724df3d15db83b0b4f0db7ee97111ce1cf86b91eb",
+   "source": "emulated from the loader's ksdk_offsets_755() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_755; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_800.bin",
+   "size": 308,
+   "sha256": "3cc5b89b4d394694f55292b893a17ff45f0ef0cb8732a2fca343692329be72ed",
+   "source": "emulated from the loader's ksdk_offsets_800() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_800; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_801.bin",
+   "size": 308,
+   "sha256": "3cc5b89b4d394694f55292b893a17ff45f0ef0cb8732a2fca343692329be72ed",
+   "source": "emulated from the loader's ksdk_offsets_801() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_801; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_803.bin",
+   "size": 308,
+   "sha256": "3cc5b89b4d394694f55292b893a17ff45f0ef0cb8732a2fca343692329be72ed",
+   "source": "emulated from the loader's ksdk_offsets_803() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_803; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_850.bin",
+   "size": 308,
+   "sha256": "d947531b879df58066860e156dce680763b98a3da26cac5bf4adbda94d5e94cd",
+   "source": "emulated from the loader's ksdk_offsets_850() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_850; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_852.bin",
+   "size": 308,
+   "sha256": "d947531b879df58066860e156dce680763b98a3da26cac5bf4adbda94d5e94cd",
+   "source": "emulated from the loader's ksdk_offsets_852() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_852; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_900.bin",
+   "size": 308,
+   "sha256": "b6a2b703c8db82131b2e781858fe4620e98ecc31e4065bb4f9d5841cc924ba2e",
+   "source": "emulated from the loader's ksdk_offsets_900() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_900; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_903.bin",
+   "size": 308,
+   "sha256": "10451631c0f7032ff5106de18cdb1edc73eaad267e155148bf08e6fa794ba0fc",
+   "source": "emulated from the loader's ksdk_offsets_903() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_903; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_904.bin",
+   "size": 308,
+   "sha256": "10451631c0f7032ff5106de18cdb1edc73eaad267e155148bf08e6fa794ba0fc",
+   "source": "emulated from the loader's ksdk_offsets_904() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_904; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_950.bin",
+   "size": 308,
+   "sha256": "ebc957b89478c5c808db071abe18d91e381cf84e8316081f9603277c848c3a8f",
+   "source": "emulated from the loader's ksdk_offsets_950() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_950; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_951.bin",
+   "size": 308,
+   "sha256": "ebc957b89478c5c808db071abe18d91e381cf84e8316081f9603277c848c3a8f",
+   "source": "emulated from the loader's ksdk_offsets_951() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_951; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/ksdk_offsets_960.bin",
+   "size": 308,
+   "sha256": "ebc957b89478c5c808db071abe18d91e381cf84e8316081f9603277c848c3a8f",
+   "source": "emulated from the loader's ksdk_offsets_960() function",
+   "description": "per-firmware kernel offsets for ksdk_offsets_960; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1000.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1000() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1000; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1001.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1001() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1001; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1050.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1050() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1050; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1071.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1071() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1071; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1100.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1100() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1100; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1102.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1102() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1102; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1152.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1152() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1152; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1202.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1202() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1202; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1252.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1252() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1252; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_1300.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_1300() function",
+   "description": "per-firmware kernel offsets for proc_offsets_1300; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_505.bin",
+   "size": 16,
+   "sha256": "54975e6f4578e8c252e2858b7b5f20da527b4e0d16297982509d050e73cd9bf9",
+   "source": "emulated from the kpayload's proc_offsets_505() function",
+   "description": "per-firmware kernel offsets for proc_offsets_505; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_671.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_671() function",
+   "description": "per-firmware kernel offsets for proc_offsets_671; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_672.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_672() function",
+   "description": "per-firmware kernel offsets for proc_offsets_672; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_702.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_702() function",
+   "description": "per-firmware kernel offsets for proc_offsets_702; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_750.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_750() function",
+   "description": "per-firmware kernel offsets for proc_offsets_750; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_751.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_751() function",
+   "description": "per-firmware kernel offsets for proc_offsets_751; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_755.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_755() function",
+   "description": "per-firmware kernel offsets for proc_offsets_755; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_800.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_800() function",
+   "description": "per-firmware kernel offsets for proc_offsets_800; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_801.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_801() function",
+   "description": "per-firmware kernel offsets for proc_offsets_801; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_803.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_803() function",
+   "description": "per-firmware kernel offsets for proc_offsets_803; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_850.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_850() function",
+   "description": "per-firmware kernel offsets for proc_offsets_850; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_852.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_852() function",
+   "description": "per-firmware kernel offsets for proc_offsets_852; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_900.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_900() function",
+   "description": "per-firmware kernel offsets for proc_offsets_900; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_903.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_903() function",
+   "description": "per-firmware kernel offsets for proc_offsets_903; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_904.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_904() function",
+   "description": "per-firmware kernel offsets for proc_offsets_904; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_950.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_950() function",
+   "description": "per-firmware kernel offsets for proc_offsets_950; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_951.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_951() function",
+   "description": "per-firmware kernel offsets for proc_offsets_951; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/tables/proc_offsets_960.bin",
+   "size": 16,
+   "sha256": "0454243490cddbc3999381360493f4ec706f732347b24405a26b963ba510bef9",
+   "source": "emulated from the kpayload's proc_offsets_960() function",
+   "description": "per-firmware kernel offsets for proc_offsets_960; also emitted as C in include/goldhen/tables/"
+  },
+  {
+   "path": "assets/kpayload/goldhen_userland.elf",
+   "size": 482000,
+   "sha256": "9900ed7e54663681a35eb3d3fbb08852a200fbb5e2e277794ed353c8b131259d",
+   "source": "payload ELF .rodata [0x011E88, 0x087958)",
+   "description": "the GoldHEN userland module injected into SceShellUI: settings menu, cheat menu and game overlay (ET_DYN, 4 program headers, entry 0x120)"
+  },
+  {
+   "path": "assets/kpayload/stubs/GHPS.bin",
+   "size": 108,
+   "sha256": "085609319319cc9669dc9441dac80930baba79b20e318b3c1591f85aa5e3838b",
+   "source": "payload ELF .rodata [0x08795C, 0x0879C8)",
+   "description": "tag 'GHPS', 108 bytes - kernel stub that makes the loader resolve 'GoldHENFakeSymbol' instead of the real libkernel entry"
+  },
+  {
+   "path": "assets/kpayload/stubs/GHPL.bin",
+   "size": 638,
+   "sha256": "23ed1a4824d21325890e60f85aa6e478b97bbd4d5ae65afdb9de1cad7c1e2166",
+   "source": "payload ELF .rodata [0x0879CC, 0x087C4A)",
+   "description": "tag 'GHPL', 638 bytes - kernel stub that loads a plugin PRX through sceKernelLoadStartModule"
+  },
+  {
+   "path": "assets/kpayload/stubs/GHPU.bin",
+   "size": 536,
+   "sha256": "3ad7aeec833cf08c4c60ac03aaeef1605f01149e525a4ab7c02798a62fe10a10",
+   "source": "payload ELF .rodata [0x087C50, 0x087E68)",
+   "description": "tag 'GHPU', 536 bytes - kernel stub that unloads a plugin PRX through sceKernelStopUnloadModule"
+  },
+  {
+   "path": "assets/kpayload/stubs/GHLD.bin",
+   "size": 301,
+   "sha256": "0fbc982409cb45dd5c476f5fc8be0499acbe3f3ea79a2ad4a9edc6f04e6045b1",
+   "source": "payload ELF .rodata [0x087E6C, 0x087F99)",
+   "description": "tag 'GHLD', 301 bytes - kernel stub that runs an ELF inside another process ('GoldHENLoader')"
+  },
+  {
+   "path": "assets/kpayload/stubs/GHST.bin",
+   "size": 410,
+   "sha256": "0c10a249718c856d3cdc741c9bb5815831b08188a3ad257d1a22ba15b7360c42",
+   "source": "payload ELF .rodata [0x087FA0, 0x08813A)",
+   "description": "tag 'GHST', 410 bytes - kernel stub used by the stats/overlay loader"
+  },
+  {
+   "path": "assets/kpayload/stubs/GHBL.bin",
+   "size": 135,
+   "sha256": "03e6b6d76315d85f46a7d955fbf9052b8bdc1c1da55d8694cf3e82d4d83fa83c",
+   "source": "payload ELF .rodata [0x088140, 0x0881C7)",
+   "description": "tag 'GHBL', 135 bytes - kernel stub that runs a blob at a fixed address"
+  },
+  {
+   "path": "assets/kpayload/modules/ftp_server.bin",
+   "size": 31968,
+   "sha256": "50d2662fdd110170a2970461ac18ba9e0ccf7b75828e0c28fb4354f068c8cb6d",
+   "source": "payload ELF .rodata [0x0881CC, 0x08FEAC)",
+   "description": "tag '\ufffdKl\\x00', 31968 bytes - the FTP server module (strings: '220 GoldHEN FTP server v2.2')"
+  },
+  {
+   "path": "assets/kpayload/modules/SceGameUpdate.bin",
+   "size": 4774,
+   "sha256": "0a76fda67466987dfc25835c8bd8a0274e12b5ccd460f97c1afe0c148e4fcd5d",
+   "source": "payload ELF .rodata [0x08FEB0, 0x091156)",
+   "description": "tag '\ufffd=\\x0b\\x00', 4774 bytes - fake 'SceGameUpdate' module injected by the libkernel preload hook"
+  },
+  {
+   "path": "assets/kpayload/modules/ScePatchUpdate.bin",
+   "size": 6553,
+   "sha256": "d9dfe496a1f2d62676ecbafb55b2eb3b16ded59e08a4d93f5158e4ec30d9bc2c",
+   "source": "payload ELF .rodata [0x09115C, 0x092AF5)",
+   "description": "tag '\ufffd\\x0f\\r\\x00', 6553 bytes - fake 'ScePatchUpdate' module injected by the libkernel preload hook"
+  },
+  {
+   "path": "assets/kpayload/modules/payloader_server.bin",
+   "size": 10308,
+   "sha256": "bdf35bb7cf463dd7af9a1b8bfd7cd6344f49bbfaed1f5cb391430cbf178f8661",
+   "source": "payload ELF .rodata [0x092AFC, 0x095340)",
+   "description": "tag '\ufffd\ufffd\\x1d\\x00', 10308 bytes - the BinLoader / HTTP payload receiver (strings: '<payloader> launching payload...')"
+  },
+  {
+   "path": "assets/kpayload/modules/klog_server.bin",
+   "size": 4624,
+   "sha256": "7cb4e0df214cbf7f486cf4cadc910833635472ae645c15815c68b1e4b5b12755",
+   "source": "payload ELF .rodata [0x095344, 0x096554)",
+   "description": "tag '\ufffd;\\x0c\\x00', 4624 bytes - the kernel log server module (strings: '/dev/klog', 'Klog server on port %d')"
+  },
+  {
+   "path": "assets/kpayload/cracktro.html",
+   "size": 148141,
+   "sha256": "fc1b0571ca2dec740cdfbfa6132b499deebca0ec99ccc8996a3547d1e7277521",
+   "source": "payload ELF .rodata (see tools/extract_cracktro.py)",
+   "description": "the embedded cracktro page, complete"
+  },
+  {
+   "path": "assets/kpayload/cracktro.unpacked.js",
+   "size": 203690,
+   "sha256": "784d3e21ccc6c7fd1921029fd52a40f37d3fd974da47bb21d47fe75785f4ba78",
+   "source": "payload ELF .rodata (see tools/extract_cracktro.py)",
+   "description": "the cracktro's JavaScript, unpacked from the Dean Edwards packer"
+  },
+  {
+   "path": "assets/kpayload/images/cracktro_01.png",
+   "size": 8206,
+   "sha256": "26e00dfa686013ca840bcf67d2b595e3fd09d041311ea234e2babbc64a3fce2f",
+   "source": "payload ELF .rodata (see tools/extract_cracktro.py)",
+   "description": "a cracktro image, recovered from its data URI and CRC-validated"
+  },
+  {
+   "path": "assets/kpayload/images/cracktro_02.png",
+   "size": 9527,
+   "sha256": "6d8352d7df67adc5403a858d76aece13f6f57f1194e95c8b45c44b628c48eb2f",
+   "source": "payload ELF .rodata (see tools/extract_cracktro.py)",
+   "description": "a cracktro image, recovered from its data URI and CRC-validated"
+  },
+  {
+   "path": "assets/kpayload/images/cracktro_03.png",
+   "size": 4206,
+   "sha256": "4e0c1e5df5d81851d12b585527371b016aad648701ea78a95b0d4524ce9e2bd6",
+   "source": "payload ELF .rodata (see tools/extract_cracktro.py)",
+   "description": "a cracktro image, recovered from its data URI and CRC-validated"
+  },
+  {
+   "path": "assets/kpayload/images/cracktro_04.png",
+   "size": 550,
+   "sha256": "3840037ac2d51b2407b04a4a610ce3c7443c602c9ca0536108f53dc89fec00ec",
+   "source": "payload ELF .rodata (see tools/extract_cracktro.py)",
+   "description": "a cracktro image, recovered from its data URI and CRC-validated"
+  }
+ ]
+}
